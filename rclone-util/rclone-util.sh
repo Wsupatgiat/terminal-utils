@@ -58,7 +58,7 @@ _sync_online_to_local() {
 		return 1
 	fi
 
-	echo "Sync ONLINE to LOCAL drive? (rewrites ONLINE)"
+	echo "Sync ONLINE to LOCAL drive? (updates ONLINE)"
 	read -p $'Type \e[3monline\e[0m to confirm: ' _confirm
 	if [ "$_confirm" == "online" ]; then
 		rsync -azP --exclude-from="$ignore_file_path" --delete "$local_drive_path"/ "$drive_path"
@@ -76,7 +76,7 @@ _sync_local_to_online() {
 		return 1
 	fi
 
-	echo "Sync LOCAL to ONLINE drive? (rewrites LOCAL)"
+	echo "Sync LOCAL to ONLINE drive? (updates LOCAL)"
 	read -p $'Type \e[3mlocal\e[0m to confirm: ' _confirm
 	if [ "$_confirm" == "local" ]; then
 			rsync -azP "$drive_path"/ "$local_drive_path"
