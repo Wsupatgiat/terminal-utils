@@ -67,6 +67,6 @@ rdrive so
 
 **Important Notes:**
 - `ignore-list.txt` is only used when **pushing updates from local to online (syncing online to local)**.
-- Files and folders listed in `ignore-list.txt` (e.g., `venv/`) will not be copied **from online to local**.
-- However, all contents (including ignored ones) will be copied **from local to online**.
+- Files and folders listed in `ignore-list.txt` (e.g., `venv/`) will not be copied **from local to online**.
+- However, all contents (including ignored ones) will be copied **from online to local**.
 - The default `ignore-list.txt` includes an example for convenience, which you can modify or replace entirely.
