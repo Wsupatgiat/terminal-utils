@@ -2,11 +2,10 @@
 drive_path="$HOME/WSL-drive/online-WSL-drive"
 local_drive_path="$HOME/WSL-drive/local-WSL-drive"
 remote_name="online-WSL-drive"
-ignore_file_path="$HOME/terminal-utils/rclone-gdrive-util/ignore-list.txt"
+ignore_file_path="$HOME/terminal-utils/rclone-util/ignore-list.txt"
 
 
 
-# check if the drive is mounted
 _check_mounted_quiet() {
 	if mountpoint -q "$drive_path"; then
 		# mounted
@@ -17,7 +16,7 @@ _check_mounted_quiet() {
 }
 
 
-#check if mounted
+# check if drive is mounted
 _check_mounted() {
 	if _check_mounted_quiet; then
 		echo -e "\e[30;42m * \e[0m Drive mounted"
@@ -46,13 +45,13 @@ _mount_drive() {
 	fi
 }
 
-#refresh (unmount and mount)
+# refresh (unmount and mount)
 _refresh_drive() {
 	_unmount_drive
 	_mount_drive
 }
 
-#sync online drive to local
+# sync online drive to local
 _sync_online_to_local() {
 	if ! _check_mounted_quiet; then
 		echo -e "\e[100m * \e[0m Drive is unmounted"
@@ -70,7 +69,7 @@ _sync_online_to_local() {
 	fi
 }
 
-#sync local to online drive
+# sync local to online drive
 _sync_local_to_online() {
 	if ! _check_mounted_quiet; then
 		echo "Drive unmounted"
@@ -89,6 +88,12 @@ _sync_local_to_online() {
 }
 
 # Final func to wrap around everything
+# cm - Check Mounted
+# um - UnMount
+# m - Mount
+# rf - ReFresh
+# so - Sync Online
+# sl - Sync Local
 
 rdrive() {
 	case "$1" in
